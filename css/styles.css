@@ -226,6 +226,8 @@ button {
     height: 100%;
     background-color: #fff;
 
+    z-index: 999;
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -248,6 +250,8 @@ button {
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    overflow-y: auto;
 }
 
 .btn-menu-close {
@@ -294,8 +298,17 @@ button {
     line-height: 1.1;
     letter-spacing: 0.02em;
     display: flex;
-    margin: 40px 0;
+    margin-bottom: 40px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-navigation-menu li:last-child .link-menu {
+    margin-bottom: 0;
+}
+
+.navigation-menu {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .link-menu.nav-current-menu {
@@ -358,7 +371,7 @@ background-color: #404bbf;
 }
 
 .menu-icon {
-fill: #F4F4FD;
+fill: #f4f4fd;
     transition: fill 250ms;
 }
 
@@ -376,14 +389,13 @@ fill: #F4F4FD;
 /* first section */
 .button-order {
     background-color: #2e2f42;
-    padding: 72px 0 200px 0;
+    padding: 72px 0;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-        url(../images/people-office.jpg);
+        url(../images/hero-image-for-mobile.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     max-width: 320px;
-    height: 432px;
     margin: 0 auto;
     text-align: center;
 }
@@ -391,7 +403,7 @@ fill: #F4F4FD;
 @media screen and (min-resolution: 192dpi) {
     .button-order {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-                url(../images/hero-image.jpg);
+                url(../images/hero-image-for-mobile-192.jpg);
     }
 }
 
@@ -434,10 +446,18 @@ fill: #F4F4FD;
 
 @media screen and (min-width: 768px) {
 .button-order {
-        padding: 112px 0 204px 0;
+        padding: 112px 0;
         max-width: 768px;
-        height: 436px;
-    }
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+                url(../images/hero-image-for-768.jpg);
+        } 
+   
+    @media screen and (min-resolution: 192dpi) {
+        .button-order {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url(../images/hero-image-for-768-192.jpg);
+            }
+        }
 
     .title {
         font-weight: 700;
@@ -453,7 +473,15 @@ fill: #F4F4FD;
 .button-order {
     padding: 188px 0;
     max-width: 1440px;
-    height: 600px;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+            url(../images/hero-image-for-1158.jpg);
+    }
+    
+    @media screen and (min-resolution: 192dpi) {
+        .button-order {
+            background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+                url(../images/hero-image-for-1158-192.jpg);
+        }
     }
 }
 
@@ -487,6 +515,7 @@ fill: #F4F4FD;
     letter-spacing: 0.02em;
     line-height: 1.1;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .paragraph {
@@ -502,11 +531,16 @@ fill: #F4F4FD;
         display: flex;
         align-items: center;
         gap: 24px;
+        row-gap: 72px;
         flex-wrap: wrap;
     }
 
+.our-title {
+text-align: left;
+}
+
     .list-list {
-width: calc((100% - 24) / 2);
+width: calc((100% - 24px) / 2);
 box-sizing: border-box;
  }   
 }
@@ -556,7 +590,7 @@ box-sizing: border-box;
 /* third section */
 .our-team {
     background-color: #f4f4fd;
-    padding: 96px 12px;
+    padding: 96px 0;
 }
 
 .title-second {
@@ -643,11 +677,12 @@ gap: 72px;
 
 @media screen and (min-width: 768px) {
 .our-team {
-        padding: 96px 92px;
+        padding: 96px 0;
     }
 
 .list-empl {
     gap: 24px;
+    row-gap: 64px;
 }
 
 .employers {
@@ -689,11 +724,11 @@ gap: 72px;
     border-top: none;
 }
 
-.portfolio-photo {
+/* .portfolio-photo {
     width: 150%;
     max-width: none;
     background-color: #ffffff;
-}
+} */
 
 .portfolio-title {
     font-size: 20px;
@@ -735,7 +770,7 @@ gap: 72px;
 }
 
 /* Анімація появи при наведенні */
-.imagine-wrapped:hover .overlay-text {
+.portfolio-app:hover .overlay-text {
     transform: translateY(0);
 }
 
@@ -752,9 +787,9 @@ gap: 72px;
     width: calc((100% - 48px) / 2);
     }
 
-.portfolio-photo {
+/* .portfolio-photo {
 width: 100%;
-}
+} */
 }
 
 
@@ -775,6 +810,7 @@ width: 100%;
     background-color: #2e2f42;
     padding-top: 96px;
     padding-bottom: 96px;
+    margin-bottom: 0;
 }
 
 .footer-container {
@@ -796,7 +832,10 @@ width: 100%;
     color: #4d5ae5;
     line-height: 1.17;
     letter-spacing: 0.03em;
-    display: inline-block;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 16px;
 }
 
@@ -829,6 +868,7 @@ width: 100%;
 .footer-link-icon {
     display: flex;
     gap: 16px;
+    justify-content: center;
 }
 
 .list-social-footer {
@@ -858,7 +898,11 @@ width: 100%;
 }
 
 .footer-social-media {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 72px;
+    text-align: center;
+    justify-content: center;
 }
 
 /* subscribe */
@@ -866,6 +910,7 @@ width: 100%;
     display: block;
     flex-direction: column;
     align-items: flex-start;
+    text-align: center;
 }
 
 .subs-form {
@@ -947,6 +992,11 @@ display: flex;
 }
 
 @media screen and (min-width: 768px) {
+.link-link {
+        display: inline-block;
+        text-align: left;
+    }
+
 .container-link {
         margin-right: 24px;
     }
@@ -956,8 +1006,27 @@ display: flex;
     height: 72px;
 }
 
+.footer-social-media {
+    text-align: left;
+}
+
 .footer-input {
     width: 264px;
+}
+
+.social-paragraph {
+    text-align: left;
+}
+
+.footer-social-media {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 72px;
+    text-align: center;
+}
+
+.subs {
+    text-align: left;
 }
 
 .subs-form {
@@ -1072,7 +1141,7 @@ display: flex;
 }
 
 .label-form {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .modal-item {
@@ -1092,7 +1161,7 @@ display: flex;
     height: 40px;
     display: flex;
     flex-direction: column;
-    padding-left: 16px;
+    padding-left: 34px;
 }
 
 .modal-input:focus {
